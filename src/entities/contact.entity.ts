@@ -16,10 +16,10 @@ class Contact {
   @Column({ length: 200 })
   fullName: string;
 
-  @Column({ unique: true, length: 100 })
+  @Column({ length: 100 })
   email: string;
 
-  @Column({ unique: true, length: 9 })
+  @Column({ length: 9 })
   telephone: string;
 
   @CreateDateColumn()

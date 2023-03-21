@@ -1,49 +1,32 @@
 import "reflect-metadata";
 import "dotenv/config";
-import path from "path";
-import { DataSource, DataSourceOptions } from "typeorm";
+import { DataSource } from "typeorm";
+import User from "./entities/user.entity";
+import Client from "./entities/client.entity";
+import Contact from "./entities/contact.entity";
+import { removeCreateClient1679440943730 } from "./migrations/1679440943730-removeCreate_client";
+import { fixCreateMultiContacts1679441792147 } from "./migrations/1679441792147-fixCreateMultiContacts";
 
-const setDataSourceConfig = (): DataSourceOptions => {
-  const entitiesPath: string = path.join(__dirname, "./entities/**.{js,ts}");
-  const migrationsPath: string = path.join(
-    __dirname,
-    "./migrations/**.{js,ts}"
-  );
+const AppDataSource = new DataSource(
+  process.env.NODE_ENV === "test"
+    ? {
+        type: "sqlite",
+        database: ":memory:",
+        synchronize: true,
+        entities: ["src/entities/*.ts"],
+      }
+    : {
+        type: "postgres",
+        host: process.env.PGHOST,
+        port: parseInt(process.env.PGPORT),
+        username: process.env.PGUSER,
+        password: process.env.PGPASSWORD,
+        database: process.env.DB,
+        logging: true,
+        synchronize: false,
+        entities: [User, Client, Contact],
+        migrations: [fixCreateMultiContacts1679441792147],
+      }
+);
 
-  const nodeEnv = process.env.NODE_ENV;
-
-  if (nodeEnv === "production") {
-    return {
-      type: "postgres",
-      url: process.env.DATABASE_URL,
-      entities: [entitiesPath],
-      migrations: [migrationsPath],
-    };
-  }
-
-  if (nodeEnv === "test") {
-    return {
-      type: "sqlite",
-      database: ":memory:",
-      synchronize: true,
-      entities: [entitiesPath],
-    };
-  }
-
-  return {
-    type: "postgres",
-    host: process.env.PGHOST,
-    username: process.env.PGUSER,
-    password: process.env.PGPASSWORD,
-    port: parseInt(process.env.PGPORT),
-    database: process.env.DB,
-    synchronize: false,
-    logging: true,
-    entities: [entitiesPath],
-    migrations: [migrationsPath],
-  };
-};
-
-const dataSourceConfig = setDataSourceConfig();
-
-export default new DataSource(dataSourceConfig);
+export default AppDataSource;
