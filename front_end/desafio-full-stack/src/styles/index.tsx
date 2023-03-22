@@ -31,13 +31,13 @@ export const Form = styled.form`
   justify-content: center;
   background-color: white;
   width: 40%;
-  height: 50%;
-  border-radius: 8px;
-  gap: 2rem;
+  height: 60%;
+  border-radius: 2px;
+  gap: 1rem;
   max-width: 100%;
 
   @media (max-width: 768px) {
-    height: 25%;
+    height: 50%;
   }
 
   h2 {
@@ -64,7 +64,7 @@ export const Form = styled.form`
     background-color: black;
     color: white;
     border-radius: 2px;
-    border: transparent;
+    border: 2px solid transparent;
 
     :hover {
       background-color: gray;
@@ -76,4 +76,9 @@ export const Form = styled.form`
 export const Label = styled.label<IStyledProps>`
   font-weight: bold;
   color: ${(props) => props.colorText};
+`;
+
+export const Span = styled.span`
+  color: grey;
+  font-size: 1rem;
 `;

@@ -24,7 +24,7 @@ class User {
   @Column({ length: 120 })
   password: string;
 
-  @Column({ unique: true, length: 11 })
+  @Column({ length: 11 })
   telephone: string;
 
   @CreateDateColumn()

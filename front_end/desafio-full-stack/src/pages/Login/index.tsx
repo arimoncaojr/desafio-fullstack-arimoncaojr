@@ -4,10 +4,12 @@ import { schema } from "../../lib/yupLogin";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Navigate } from "react-router-dom";
-import { Container, TitlePage, Form, Label } from "../../styles";
+import { Container, TitlePage, Form, Label, Span } from "../../styles";
+import { ModalRegister } from "../../components/ModalRegister";
 
 export const LoginPage = () => {
-  const { token, login } = useContext(AuthContext);
+  const { token, login, showModalRegister, setShowModalRegister } =
+    useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -18,7 +20,7 @@ export const LoginPage = () => {
     <>
       {!token ? (
         <Container>
-          <TitlePage>Painel Administrativo</TitlePage>
+          <TitlePage>Painel do Cliente</TitlePage>
           <Form onSubmit={handleSubmit(login)}>
             <h2>Login</h2>
             <div>
@@ -44,7 +46,17 @@ export const LoginPage = () => {
               />
             </div>
             <button type="submit">Entrar</button>
+            <Span>Ainda não tem uma conta?</Span>
+            <button
+              type="button"
+              onClick={() => {
+                setShowModalRegister(true);
+              }}
+            >
+              Cadastre-se
+            </button>
           </Form>
+          {showModalRegister && <ModalRegister />}
         </Container>
       ) : (
         <Navigate to="/dashboard" />

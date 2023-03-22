@@ -3,7 +3,7 @@ import "dotenv/config";
 import { DataSource } from "typeorm";
 import User from "./entities/user.entity";
 import Contact from "./entities/contact.entity";
-import { fixDeleteClientEntity1679507260797 } from "./migrations/1679507260797-fixDeleteClientEntity";
+import { fixFieldTelephone1679517317002 } from "./migrations/1679517317002-fixFieldTelephone";
 
 const AppDataSource = new DataSource(
   process.env.NODE_ENV === "test"
@@ -23,7 +23,7 @@ const AppDataSource = new DataSource(
         logging: true,
         synchronize: false,
         entities: [User, Contact],
-        migrations: [fixDeleteClientEntity1679507260797],
+        migrations: [fixFieldTelephone1679517317002],
       }
 );
 
