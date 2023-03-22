@@ -8,7 +8,7 @@ import {
 const contactRequestSerializer: SchemaOf<IContactRequest> = yup.object().shape({
   fullName: yup.string().max(200).required(),
   email: yup.string().email().max(100).required(),
-  telephone: yup.string().max(9).required(),
+  telephone: yup.string().max(11).required(),
   clientId: yup.string().required(),
 });
 
@@ -16,9 +16,9 @@ const contactResponseSerializer: SchemaOf<IContactResponse> = yup
   .object()
   .shape({
     id: yup.string().notRequired(),
-    fullName: yup.string().max(200).notRequired(),
-    email: yup.string().email().max(100).notRequired(),
-    telephone: yup.string().max(9).notRequired(),
+    fullName: yup.string().notRequired(),
+    email: yup.string().email().notRequired(),
+    telephone: yup.string().notRequired(),
     createdAt: yup.string().notRequired(),
     clientId: yup.string().notRequired(),
   });

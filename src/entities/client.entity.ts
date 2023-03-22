@@ -18,7 +18,7 @@ class Client {
   @Column({ unique: true, length: 100 })
   email: string;
 
-  @Column({ unique: true, length: 9 })
+  @Column({ unique: true, length: 11 })
   telephone: string;
 
   @CreateDateColumn()
