@@ -6,12 +6,12 @@ import Contact from "./entities/contact.entity";
 import { fixFieldTelephone1679517317002 } from "./migrations/1679517317002-fixFieldTelephone";
 
 const AppDataSource = new DataSource(
-  process.env.NODE_ENV === "test"
+  process.env.NODE_ENV === "production"
     ? {
-        type: "sqlite",
-        database: ":memory:",
-        synchronize: true,
-        entities: ["src/entities/*.ts"],
+        type: "postgres",
+        url: process.env.DATABASE_URL,
+        entities: [User, Contact],
+        migrations: [fixFieldTelephone1679517317002],
       }
     : {
         type: "postgres",
