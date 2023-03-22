@@ -5,24 +5,33 @@ import {
   Column,
   BeforeInsert,
   BeforeUpdate,
+  CreateDateColumn,
+  OneToMany,
 } from "typeorm";
+import Contact from "./contact.entity";
 
 @Entity("users")
 class User {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @Column({ length: 50 })
-  username: string;
+  @Column({ length: 200 })
+  fullName: string;
 
-  @Column({ length: 50, unique: true })
+  @Column({ unique: true, length: 100 })
   email: string;
 
   @Column({ length: 120 })
   password: string;
 
-  @Column({ default: false })
-  isAdm: boolean;
+  @Column({ unique: true, length: 11 })
+  telephone: string;
+
+  @CreateDateColumn()
+  createdAt: Date;
+
+  @OneToMany(() => Contact, (contact) => contact.user, { eager: true })
+  contacts: Contact[];
 
   @BeforeUpdate()
   @BeforeInsert()

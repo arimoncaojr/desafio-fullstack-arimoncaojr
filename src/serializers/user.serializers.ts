@@ -5,19 +5,22 @@ import {
   IUserResponse,
   IUserLogin,
 } from "../interfaces/user.interfaces";
+import { contactResponseSerializer } from "./contact.serializers";
 
 const userRequestSerializer: SchemaOf<IUserRequest> = yup.object().shape({
-  username: yup.string().max(50).required(),
-  email: yup.string().email().max(50).required(),
+  fullName: yup.string().max(200).required(),
+  email: yup.string().email().max(100).required(),
   password: yup.string().max(120).required(),
-  isAdm: yup.boolean().notRequired(),
+  telephone: yup.string().max(11).required(),
 });
 
 const userResponseSerializer: SchemaOf<IUserResponse> = yup.object().shape({
   id: yup.string().notRequired(),
-  username: yup.string().notRequired(),
-  email: yup.string().notRequired(),
-  isAdm: yup.boolean().notRequired(),
+  fullName: yup.string().notRequired(),
+  email: yup.string().email().notRequired(),
+  telephone: yup.string().notRequired(),
+  createdAt: yup.string().notRequired(),
+  contacts: yup.array(contactResponseSerializer),
 });
 
 const userLoginSerializer: SchemaOf<IUserLogin> = yup.object().shape({

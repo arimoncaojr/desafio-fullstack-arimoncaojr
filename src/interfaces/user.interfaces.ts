@@ -1,15 +1,19 @@
+import { IContactResponse } from "./contact.interfaces";
+
 export interface IUserRequest {
-  username: string;
+  fullName: string;
   email: string;
   password: string;
-  isAdm?: boolean;
+  telephone: string;
 }
 
 export interface IUserResponse {
   id: string;
-  username: string;
+  fullName: string;
   email: string;
-  isAdm: boolean;
+  telephone: string;
+  createdAt: string;
+  contacts: Array<IContactResponse> | [];
 }
 
 export interface IUserLogin {

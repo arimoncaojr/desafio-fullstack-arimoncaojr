@@ -9,7 +9,6 @@ const contactRequestSerializer: SchemaOf<IContactRequest> = yup.object().shape({
   fullName: yup.string().max(200).required(),
   email: yup.string().email().max(100).required(),
   telephone: yup.string().max(11).required(),
-  clientId: yup.string().required(),
 });
 
 const contactResponseSerializer: SchemaOf<IContactResponse> = yup
@@ -20,7 +19,7 @@ const contactResponseSerializer: SchemaOf<IContactResponse> = yup
     email: yup.string().email().notRequired(),
     telephone: yup.string().notRequired(),
     createdAt: yup.string().notRequired(),
-    clientId: yup.string().notRequired(),
+    userId: yup.string().notRequired(),
   });
 
 export { contactRequestSerializer, contactResponseSerializer };

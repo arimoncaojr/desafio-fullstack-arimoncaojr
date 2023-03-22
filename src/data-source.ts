@@ -2,9 +2,8 @@ import "reflect-metadata";
 import "dotenv/config";
 import { DataSource } from "typeorm";
 import User from "./entities/user.entity";
-import Client from "./entities/client.entity";
 import Contact from "./entities/contact.entity";
-import { fixFieldsTelephoneAndEmail1679445405187 } from "./migrations/1679445405187-fixFieldsTelephoneAndEmail";
+import { fixDeleteClientEntity1679507260797 } from "./migrations/1679507260797-fixDeleteClientEntity";
 
 const AppDataSource = new DataSource(
   process.env.NODE_ENV === "test"
@@ -23,8 +22,8 @@ const AppDataSource = new DataSource(
         database: process.env.DB,
         logging: true,
         synchronize: false,
-        entities: [User, Client, Contact],
-        migrations: [fixFieldsTelephoneAndEmail1679445405187],
+        entities: [User, Contact],
+        migrations: [fixDeleteClientEntity1679507260797],
       }
 );
 

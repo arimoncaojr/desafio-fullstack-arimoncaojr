@@ -26,7 +26,7 @@ const loginUserService = async ({
     throw new AppError("Wrong email or password", 403);
   }
 
-  const token = Jwt.sign({ isAdm: foundUser.isAdm }, process.env.SECRET_KEY, {
+  const token = Jwt.sign({}, process.env.SECRET_KEY, {
     expiresIn: "24h",
     subject: String(foundUser.id),
   });
