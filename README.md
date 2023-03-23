@@ -54,6 +54,7 @@ yarn typeorm migration:run -d src/data-source
 ## Executando os projetos
 
 Inicie o projeto back-end utilizando o comando yarn dev:
+
 cd desafio-fullstack-arimoncaojr
 
 yarn dev
