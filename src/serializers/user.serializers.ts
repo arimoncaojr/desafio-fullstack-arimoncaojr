@@ -4,6 +4,7 @@ import {
   IUserRequest,
   IUserResponse,
   IUserLogin,
+  IUserUpdateRequest,
 } from "../interfaces/user.interfaces";
 import { contactResponseSerializer } from "./contact.serializers";
 
@@ -28,4 +29,16 @@ const userLoginSerializer: SchemaOf<IUserLogin> = yup.object().shape({
   password: yup.string().notRequired(),
 });
 
-export { userRequestSerializer, userResponseSerializer, userLoginSerializer };
+const userUpdateSerializer: SchemaOf<IUserUpdateRequest> = yup.object().shape({
+  fullName: yup.string().max(200).notRequired(),
+  email: yup.string().email().max(100).notRequired(),
+  telephone: yup.string().max(11).notRequired(),
+  password: yup.string().max(120).notRequired(),
+});
+
+export {
+  userRequestSerializer,
+  userResponseSerializer,
+  userLoginSerializer,
+  userUpdateSerializer,
+};

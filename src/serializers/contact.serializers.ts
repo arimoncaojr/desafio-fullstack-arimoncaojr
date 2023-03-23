@@ -3,6 +3,7 @@ import { SchemaOf } from "yup";
 import {
   IContactRequest,
   IContactResponse,
+  IContactUpdateRequest,
 } from "../interfaces/contact.interfaces";
 
 const contactRequestSerializer: SchemaOf<IContactRequest> = yup.object().shape({
@@ -22,4 +23,16 @@ const contactResponseSerializer: SchemaOf<IContactResponse> = yup
     userId: yup.string().notRequired(),
   });
 
-export { contactRequestSerializer, contactResponseSerializer };
+const contactUpdateSerializer: SchemaOf<IContactUpdateRequest> = yup
+  .object()
+  .shape({
+    fullName: yup.string().max(200).notRequired(),
+    email: yup.string().email().max(100).notRequired(),
+    telephone: yup.string().max(11).notRequired(),
+  });
+
+export {
+  contactRequestSerializer,
+  contactResponseSerializer,
+  contactUpdateSerializer,
+};

@@ -3,6 +3,7 @@ import {
   createUserController,
   loginUserController,
   listUserByIdController,
+  updateUserController,
 } from "../controllers/users.controllers";
 import ensureAuthMiddleware from "../middlewares/ensureAuth.middleware";
 import ensureDataIsValidMiddleware from "../middlewares/ensureDataIsValid.middleware";
@@ -11,6 +12,7 @@ import ensureUserLoggedMiddleWare from "../middlewares/ensureUserLogged.middlewa
 import {
   userLoginSerializer,
   userRequestSerializer,
+  userUpdateSerializer,
 } from "../serializers/user.serializers";
 
 const userRoutes = Router();
@@ -33,6 +35,14 @@ userRoutes.get(
   ensureAuthMiddleware,
   ensureUserLoggedMiddleWare,
   listUserByIdController
+);
+
+userRoutes.patch(
+  "/:id",
+  ensureAuthMiddleware,
+  ensureUserLoggedMiddleWare,
+  ensureDataIsValidMiddleware(userUpdateSerializer),
+  updateUserController
 );
 
 export default userRoutes;

@@ -1,8 +1,13 @@
 import { Request, Response } from "express";
-import { IUserRequest, IUserLogin } from "../interfaces/user.interfaces";
+import {
+  IUserRequest,
+  IUserLogin,
+  IUserUpdateRequest,
+} from "../interfaces/user.interfaces";
 import createUserService from "../services/users/createUser.service";
 import loginUserService from "../services/users/loginUser.service";
 import listUserByIdService from "../services/users/listUserById.service";
+import updateUserService from "../services/users/updateUser.service";
 
 const createUserController = async (req: Request, res: Response) => {
   const userData: IUserRequest = req.body;
@@ -26,4 +31,17 @@ const listUserByIdController = async (req: Request, res: Response) => {
   return res.status(200).json(user);
 };
 
-export { createUserController, loginUserController, listUserByIdController };
+const updateUserController = async (req: Request, res: Response) => {
+  const userData: IUserUpdateRequest = req.body;
+  const userId = req.params.id;
+  const updateUser = await updateUserService(userData, userId);
+
+  return res.status(200).json(updateUser);
+};
+
+export {
+  createUserController,
+  loginUserController,
+  listUserByIdController,
+  updateUserController,
+};

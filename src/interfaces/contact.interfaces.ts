@@ -12,3 +12,9 @@ export interface IContactResponse {
   createdAt: string;
   userId: string;
 }
+
+export interface IContactUpdateRequest {
+  fullName?: string;
+  email?: string;
+  telephone?: string;
+}
