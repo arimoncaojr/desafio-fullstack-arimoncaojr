@@ -26,9 +26,11 @@ git clone git@github.com:arimoncaojr/desafio-full-stack-front-end-arimoncaojr.gi
 Navegue até a pasta de cada repositório e instale as dependências utilizando o comando yarn:
 
 cd desafio-fullstack-arimoncaojr
+
 yarn
 
 cd ../desafio-full-stack-front-end-arimoncaojr
+
 yarn
 
 ## Configurando o banco de dados PostgreSQL
@@ -50,11 +52,13 @@ yarn typeorm migration:run -d src/data-source
 
 Inicie o projeto back-end utilizando o comando yarn dev:
 cd desafio-fullstack-arimoncaojr
+
 yarn dev
 
 ## Em seguida, inicie o projeto front-end utilizando o comando yarn start:
 
 cd ../desafio-full-stack-front-end-arimoncaojr
+
 yarn start
 
 ## Após seguir todas as etapas, o projeto back-end estará rodando na porta configurada no arquivo .env e o projeto front-end estará rodando na porta padrão 3000(caso a porta configurada no arquivo .env seja a 3000, o projeto front-end irá automaticamente para a porta 3001). Agora você pode começar a explorar e utilizar os projetos Desafio Fullstack Arimoncaojr.
