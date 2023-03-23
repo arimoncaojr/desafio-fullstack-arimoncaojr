@@ -1,6 +1,6 @@
-## Documentação do Projeto Desafio Fullstack Arimoncaojr
+## Documentação do Projeto Desafio Fullstack
 
-Este documento tem como objetivo orientar a instalação e configuração dos projetos back-end e front-end do Desafio Fullstack Arimoncaojr.
+Este documento tem como objetivo orientar a instalação e configuração dos projetos back-end e front-end do Desafio Fullstack.
 
 ## Pré-requisitos
 
