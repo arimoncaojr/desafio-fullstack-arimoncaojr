@@ -3,7 +3,7 @@ import "dotenv/config";
 import { DataSource } from "typeorm";
 import User from "./entities/user.entity";
 import Contact from "./entities/contact.entity";
-import { fixFieldTelephone1679517317002 } from "./migrations/1679517317002-fixFieldTelephone";
+import { fixUserDelete1679597727830 } from "./migrations/1679597727830-fixUserDelete";
 
 const AppDataSource = new DataSource(
   process.env.NODE_ENV === "production"
@@ -11,7 +11,7 @@ const AppDataSource = new DataSource(
         type: "postgres",
         url: process.env.DATABASE_URL,
         entities: [User, Contact],
-        migrations: [fixFieldTelephone1679517317002],
+        migrations: [fixUserDelete1679597727830],
       }
     : {
         type: "postgres",
@@ -23,7 +23,7 @@ const AppDataSource = new DataSource(
         logging: true,
         synchronize: false,
         entities: [User, Contact],
-        migrations: [fixFieldTelephone1679517317002],
+        migrations: [fixUserDelete1679597727830],
       }
 );
 

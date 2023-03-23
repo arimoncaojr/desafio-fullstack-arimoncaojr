@@ -30,7 +30,10 @@ class User {
   @CreateDateColumn()
   createdAt: Date;
 
-  @OneToMany(() => Contact, (contact) => contact.user, { eager: true })
+  @OneToMany(() => Contact, (contact) => contact.user, {
+    eager: true,
+    onDelete: "CASCADE",
+  })
   contacts: Contact[];
 
   @BeforeUpdate()

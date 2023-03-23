@@ -4,6 +4,7 @@ import {
   loginUserController,
   listUserByIdController,
   updateUserController,
+  deleteUserController,
 } from "../controllers/users.controllers";
 import ensureAuthMiddleware from "../middlewares/ensureAuth.middleware";
 import ensureDataIsValidMiddleware from "../middlewares/ensureDataIsValid.middleware";
@@ -43,6 +44,13 @@ userRoutes.patch(
   ensureUserLoggedMiddleWare,
   ensureDataIsValidMiddleware(userUpdateSerializer),
   updateUserController
+);
+
+userRoutes.delete(
+  "/:id",
+  ensureAuthMiddleware,
+  ensureUserLoggedMiddleWare,
+  deleteUserController
 );
 
 export default userRoutes;

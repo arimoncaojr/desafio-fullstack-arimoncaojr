@@ -25,7 +25,10 @@ class Contact {
   @CreateDateColumn()
   createdAt: Date;
 
-  @ManyToOne(() => User, (user) => user.contacts, { nullable: true })
+  @ManyToOne(() => User, (user) => user.contacts, {
+    nullable: true,
+    onDelete: "CASCADE",
+  })
   @JoinColumn()
   user: User;
 }
