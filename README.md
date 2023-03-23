@@ -15,7 +15,7 @@ Primeiramente, clone os repositórios do back-end e front-end para sua máquina 
 
 ## Back-end
 
-git@github.com:arimoncaojr/desafio-fullstack-back-end-arimoncaojr.git
+git clone git@github.com:arimoncaojr/desafio-fullstack-back-end-arimoncaojr.git
 
 ## Front-end
 
