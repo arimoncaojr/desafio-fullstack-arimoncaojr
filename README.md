@@ -7,7 +7,7 @@ Este documento tem como objetivo orientar a instalação e configuração dos pr
 - Git
 - Node.js
 - Yarn
-  -PostgreSQL
+-PostgreSQL
 
 ## Clonando os repositórios
 
