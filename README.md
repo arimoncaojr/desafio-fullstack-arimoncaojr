@@ -46,7 +46,9 @@ Na pasta do projeto back-end, crie um arquivo .env baseado no arquivo .env.examp
 ## Executando migrações no banco de dados
 
 Navegue até a pasta do repositório back-end e rode as migrações:
+
 cd desafio-fullstack-arimoncaojr
+
 yarn typeorm migration:run -d src/data-source
 
 ## Executando os projetos
