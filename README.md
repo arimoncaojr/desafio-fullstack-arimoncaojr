@@ -58,3 +58,7 @@ cd ../desafio-full-stack-front-end-arimoncaojr
 yarn start
 
 ## Após seguir todas as etapas, o projeto back-end estará rodando na porta configurada no arquivo .env e o projeto front-end estará rodando na porta padrão 3000(caso a porta configurada no arquivo .env seja a 3000, o projeto front-end irá automaticamente para a porta 3001). Agora você pode começar a explorar e utilizar os projetos Desafio Fullstack Arimoncaojr.
+
+## Documentação
+
+Link para documentação do projeto: https://sassy-jay-fe8.notion.site/Documenta-o-da-API-do-Desafio-Fullstack-578547af61ce42f1ac47a4b8db15aeaa
