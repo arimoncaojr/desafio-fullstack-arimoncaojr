@@ -35,7 +35,7 @@ yarn
 
 ## Configurando o banco de dados PostgreSQL
 
-Crie um banco de dados PostgreSQL utilizando o comando CREATE DATABASE:
+Crie um banco de dados PostgreSQL utilizando o comando:
 CREATE DATABASE nome_do_banco;
 
 ## Configurando o arquivo .env
